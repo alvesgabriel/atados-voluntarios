@@ -1,0 +1,36 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+pytest-django = "*"
+pytest-cov = "*"
+codecov = "*"
+model-bakery = "*"
+isort = "*"
+black = "*"
+
+[packages]
+django = "*"
+gunicorn = "*"
+python-decouple = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
+collectfast = "*"
+django-debug-toolbar = "*"
+sentry-sdk = "*"
+django-ordered-model = "*"
+ipython = "*"
+django-extensions = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
+django-s3-folder-storage = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
