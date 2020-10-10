@@ -31,6 +31,7 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default=[], cast=Csv())
 
+AUTH_USER_MODEL = "base.User"
 
 # Application definition
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "collectfast",
     "django.contrib.staticfiles",
+    "voluntarios.base",
 ]
 
 MIDDLEWARE = [
@@ -157,7 +159,7 @@ if AWS_ACCESS_KEY_ID:
 
     # Upload Media Folder
     DEFAULT_FILE_STORAGE = "s3_folder_storage.s3.DefaultStorage"
-    DEFAULT_S3_PATH = "static"
+    DEFAULT_S3_PATH = "media"
     MEDIA_ROOT = f"/{DEFAULT_S3_PATH}/"
     MEDIA_URL = f"//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{DEFAULT_S3_PATH}/"
 
