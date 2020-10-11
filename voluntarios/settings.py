@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "voluntarios.base",
     "voluntarios.voluntario",
+    "voluntarios.acoes",
     "django_extensions",
 ]
 

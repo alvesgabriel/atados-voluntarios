@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework import routers
+
+from voluntarios.acoes import views as acoes_views
+from voluntarios.voluntario import views as voluntario_views
+
+router = routers.DefaultRouter()
+router.register(r"voluntarios", voluntario_views.VoluntarioViewSet, basename="voluntarios")
+router.register(r"acoes", acoes_views.AcaoViewSet, basename="acoes")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("voluntarios.voluntario.urls")),
+    path("", include(router.urls)),
     path("", include("rest_framework.urls", namespace="rest_framework")),
 ]
