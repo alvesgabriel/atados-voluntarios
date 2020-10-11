@@ -43,7 +43,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "collectfast",
     "django.contrib.staticfiles",
+    "rest_framework",
     "voluntarios.base",
+    "voluntarios.voluntario",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -165,3 +168,5 @@ if AWS_ACCESS_KEY_ID:
 
     INSTALLED_APPS.append("s3_folder_storage")
     INSTALLED_APPS.append("storages")
+
+REST_FRAMEWORK = {"DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination", "PAGE_SIZE": 10}
