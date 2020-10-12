@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.8"
 
 services:
     database:
@@ -9,8 +9,25 @@ services:
             - ./.pgdata:/var/lib/postgresql/data
         environment:
             - LC_ALL=C.UTF-8
-            - POSTGRES_PASSWORD=postgreSQL
+            - POSTGRES_DB=voluntarios
             - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
         ports:
             - 5434:5432
 
+    web:
+        container_name: voluntarios_web
+        build: .
+        links:
+            - "database:dockerdb"
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - ./:/code
+        ports:
+            - '8000:8000'
+        environment: 
+            - DATABASE_URL=postgres://postgres:postgres@dockerdb:5432/voluntarios
+        depends_on:
+            - database
+        env_file:
+            - .env
