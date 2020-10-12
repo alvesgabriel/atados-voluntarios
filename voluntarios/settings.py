@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "voluntarios.base",
-    "voluntarios.voluntario",
     "voluntarios.acoes",
     "django_extensions",
 ]

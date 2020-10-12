@@ -1,8 +1,8 @@
 import pytest
 from django.urls import reverse
 from model_bakery import baker
-from voluntarios.voluntario import serializers
-from voluntarios.voluntario.models import Voluntario
+from voluntarios.acoes import serializers
+from voluntarios.acoes.models import Voluntario
 
 
 @pytest.fixture
